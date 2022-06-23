@@ -36,11 +36,17 @@ void dayAndYear(struct Data d) {
            if(verifyMonth(d.month)){
                 d.day -= 31;
                 d.month++;
-                d.year = d.month > 12 ? d.year++ : d.year;
+                if(d.month >= 12){
+                    d.month = 1;
+                    d.year++;
+                }
            }else if(!verifyMonth(d.month)){
                d.day -= 30;
                d.month++;
-               d.year = d.month > 12 ? d.year++ : d.year;
+               if(d.month >= 12){
+                   d.month = 1;
+                   d.year++;
+               }
            }
 
            if(d.day == 0){
